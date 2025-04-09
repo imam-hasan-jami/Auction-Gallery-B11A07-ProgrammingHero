@@ -50,7 +50,7 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-2xl font-poppins text-yellow-400">
+                    <a className="text-2xl font-poppins font-bold text-yellow-400 ml-4">
                         <span className="font-light text-blue-900">
                             Auction
                         </span>
