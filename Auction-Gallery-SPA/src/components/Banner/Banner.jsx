@@ -12,7 +12,7 @@ const Banner = () => {
                 />
             </div>
 
-            <div className="absolute inset-0 mt-72 ml-35">
+            <div className="absolute inset-0 mt-62 max-w-[1500px] mx-auto">
                 <h1 className="font-sora text-5xl text-white">
                     Bid on Unique Items from <br /> Around the World
                 </h1>

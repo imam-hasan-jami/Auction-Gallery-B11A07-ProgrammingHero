@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
     return (
-        <div className="max-w-[1700px] mx-auto">
+        <div className="max-w-[1500px] mx-auto">
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -50,7 +50,7 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-                    <a className="text-2xl font-poppins font-bold text-yellow-400 ml-4">
+                    <a className="text-2xl font-poppins font-bold text-yellow-400">
                         <span className="font-light text-blue-900">
                             Auction
                         </span>
