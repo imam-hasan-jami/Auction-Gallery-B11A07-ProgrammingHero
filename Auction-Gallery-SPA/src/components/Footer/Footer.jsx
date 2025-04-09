@@ -18,7 +18,9 @@ const Footer = () => {
                 <a href="">Categories</a>
                 <a href="">How to works</a>
             </div>
-            <p className="font-sora text-lg mt-8">© 2025 AuctionHub. All rights reserved.</p>
+            <p className="font-sora text-lg mt-8 mb-[130px]">
+                © 2025 AuctionHub. All rights reserved.
+            </p>
         </div>
     );
 };
