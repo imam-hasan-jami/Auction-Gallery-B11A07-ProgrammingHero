@@ -18,7 +18,7 @@ function App() {
             <Navbar />
             <Banner />
             <div className="bg-blue-200/15">
-                <div className="main-container flex max-w-[1500px] mx-auto">
+                <div className="main-container flex gap-6 max-w-[1500px] mx-auto">
                     <div className="items-container w-[60%]">
                         <Suspense
                             fallback={
@@ -30,10 +30,27 @@ function App() {
                             <Items itemsPromise={itemsPromise} />
                         </Suspense>
                     </div>
-                    <div className="favorites-container w-[40%]">
-                        <div className="flex items-center gap-2">
-                            <GoHeart />
-                            <h3> Favourite Items</h3>
+                    <div className="favorites-container w-[40%] bg-white mt-[260px] mb-130 rounded-3xl">
+                        <div className="flex justify-center items-center gap-2 pt-10 pb-5 border-b-2 border-[#E5E5E5]/50">
+                            <GoHeart size={30} />
+                            <h3 className="font-sora text-3xl">
+                                Favourite Items
+                            </h3>
+                        </div>
+                        <div className="">
+                            <h3 className="font-sora text-[26px] text-center font-medium mt-12">
+                                No favorites yet
+                            </h3>
+                            <p className="font-sora text-base text-center mt-6 pb-11 border-b-2 border-[#E5E5E5]/50">
+                                Click the heart icon on any item <br /> to add
+                                it to your favorites
+                            </p>
+                            <div className="flex justify-around items-center">
+                                <h3 className="font-sora text-2xl mt-8">
+                                    Total bids Amount
+                                </h3>
+                                <h3 className="font-sora text-2xl mt-8">$0000</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
