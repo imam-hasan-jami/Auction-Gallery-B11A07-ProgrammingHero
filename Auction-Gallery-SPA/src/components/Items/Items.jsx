@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import Item from "../../Item/Item";
 
-const Items = ({ itemsPromise }) => {
+const Items = ({ itemsPromise, handleFavourite }) => {
     const items = use(itemsPromise);
 
     return (
@@ -31,6 +31,7 @@ const Items = ({ itemsPromise }) => {
                                 key={item.id}
                                 item={item}
                                 isLastRow={index === items.length - 1}
+                                handleFavourite={handleFavourite}
                             />
                         ))}
                     </tbody>

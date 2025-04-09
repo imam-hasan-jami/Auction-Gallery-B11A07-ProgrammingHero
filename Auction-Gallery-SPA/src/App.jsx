@@ -1,9 +1,10 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import Banner from "./components/Banner/Banner";
 import Footer from "./components/Footer/Footer";
 import Items from "./components/Items/Items";
 import Navbar from "./components/Navbar/Navbar";
 import { GoHeart } from "react-icons/go";
+import { ImCross } from "react-icons/im";
 
 const fetchItems = async () => {
     const response = await fetch("items.json");
@@ -13,10 +14,28 @@ const fetchItems = async () => {
 const itemsPromise = fetchItems();
 
 function App() {
+    const [favourite, setFavourite] = useState([]);
+    const [amount, setAmount] = useState(0);
+
+    const handleFavourite = (item) => {
+        setFavourite([...favourite, item]);
+        setAmount(amount + item.currentBidPrice);
+    };
+
+    const handleRemoveFavourite = (item) => {
+        const updatedFavourite = favourite.filter(
+            (fav) => fav.id !== item.id
+        );
+        setFavourite(updatedFavourite);
+        setAmount(amount - item.currentBidPrice);
+    }
+
     return (
         <>
             <Navbar />
             <Banner />
+
+            {/* Auction Section Style */}
             <div className="bg-blue-200/15">
                 <div className="main-container flex gap-6 max-w-[1500px] mx-auto">
                     <div className="items-container w-[60%]">
@@ -27,10 +46,13 @@ function App() {
                                 </div>
                             }
                         >
-                            <Items itemsPromise={itemsPromise} />
+                            <Items
+                                itemsPromise={itemsPromise}
+                                handleFavourite={handleFavourite}
+                            />
                         </Suspense>
                     </div>
-                    <div className="favorites-container w-[40%] bg-white mt-[260px] mb-130 rounded-3xl">
+                    <div className="favorites-container w-[40%] bg-white mt-[260px] mb-140 rounded-3xl">
                         <div className="flex justify-center items-center gap-2 pt-10 pb-5 border-b-2 border-[#E5E5E5]/50">
                             <GoHeart size={30} />
                             <h3 className="font-sora text-3xl">
@@ -45,16 +67,50 @@ function App() {
                                 Click the heart icon on any item <br /> to add
                                 it to your favorites
                             </p>
-                            <div className="flex justify-around items-center">
+
+                            {favourite.map((fav) => (
+                                <div
+                                    key={fav.id}
+                                    className="flex items-center gap-3 mx-10 px-5 py-5 border-b-2 border-[#E5E5E5]/50"
+                                >
+                                    <div className="avatar">
+                                        <div className="h-15 w-15">
+                                            <img
+                                                src={fav.image}
+                                                alt="Item Image"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="flex-1">
+                                        <div className="flex justify-between items-center w-full">
+                                            <div className="font-sora text-base text-[#0E2954]">
+                                                {fav.title}
+                                            </div>
+                                            <button onClick={() => handleRemoveFavourite(fav)}>
+                                                <ImCross size={12} />
+                                            </button>
+                                        </div>
+                                        <div className="flex gap-20 mt-2 mb-2 font-sora text-base text-[#0E2954]">
+                                            <div>${fav.currentBidPrice}</div>
+                                            <div>Bids: {fav.bidsCount}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+
+                            <div className="flex justify-around items-center mb-10">
                                 <h3 className="font-sora text-2xl mt-8">
                                     Total bids Amount
                                 </h3>
-                                <h3 className="font-sora text-2xl mt-8">$0000</h3>
+                                <h3 className="font-sora text-2xl mt-8">
+                                    ${amount}
+                                </h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <Footer />
         </>
     );

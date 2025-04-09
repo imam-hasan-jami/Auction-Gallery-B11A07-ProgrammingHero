@@ -2,7 +2,7 @@ import React from "react";
 import { GoHeart } from "react-icons/go";
 import { GoHeartFill } from "react-icons/go";
 
-const Item = ({ item, isLastRow = false }) => {
+const Item = ({ item, isLastRow = false, handleFavourite }) => {
     return (
         <tr className={isLastRow ? "" : "border-b-2 border-[#E5E5E5]/50"}>
             <td className="px-5 py-5">
@@ -16,11 +16,11 @@ const Item = ({ item, isLastRow = false }) => {
                 </div>
             </td>
             <td className="py-5">
-                {item.currentBidPrice || "Current Bid Price"}
+                ${item.currentBidPrice || "Current Bid Price"}
             </td>
             <td className="py-5">{item.timeLeft || "Remaining Time"}</td>
             <th className="py-5">
-                <button className="ml-6">
+                <button onClick={() => handleFavourite(item)} className="ml-6">
                     <GoHeart size={20} />
                 </button>
 
