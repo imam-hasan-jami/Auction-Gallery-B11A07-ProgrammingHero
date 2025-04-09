@@ -1,8 +1,21 @@
-import React from "react";
 import { GoHeart } from "react-icons/go";
 import { GoHeartFill } from "react-icons/go";
 
-const Item = ({ item, isLastRow = false, handleFavourite }) => {
+const Item = ({
+    item,
+    isLastRow = false,
+    handleFavourite,
+    handleRemoveFavourite,
+    isFavourited,
+}) => {
+    const handleFavouriteClick = () => {
+        if (!isFavourited) {
+            handleFavourite(item);
+        } else {
+            handleRemoveFavourite(item);
+        }
+    };
+
     return (
         <tr className={isLastRow ? "" : "border-b-2 border-[#E5E5E5]/50"}>
             <td className="px-5 py-5">
@@ -20,13 +33,23 @@ const Item = ({ item, isLastRow = false, handleFavourite }) => {
             </td>
             <td className="py-5">{item.timeLeft || "Remaining Time"}</td>
             <th className="py-5">
-                <button onClick={() => handleFavourite(item)} className="ml-6">
-                    <GoHeart size={20} />
-                </button>
-
-                <button className="hidden">
-                    <GoHeartFill size={20} />
-                </button>
+                {!isFavourited ? (
+                    <button
+                        onClick={handleFavouriteClick}
+                        className="btn-heart ml-6"
+                        cursor="pointer"
+                    >
+                        <GoHeart size={20} />
+                    </button>
+                ) : (
+                    <button
+                        className="btn-filled-heart text-red-500 ml-6"
+                        disabled={true}
+                        cursor="not-allowed"
+                    >
+                        <GoHeartFill size={20} />
+                    </button>
+                )}
             </th>
         </tr>
     );

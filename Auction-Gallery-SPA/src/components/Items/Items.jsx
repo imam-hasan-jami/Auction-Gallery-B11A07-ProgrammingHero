@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import Item from "../../Item/Item";
 
-const Items = ({ itemsPromise, handleFavourite }) => {
+const Items = ({ itemsPromise, handleFavourite, handleRemoveFavourite, favouriteIds }) => {
     const items = use(itemsPromise);
 
     return (
@@ -32,6 +32,8 @@ const Items = ({ itemsPromise, handleFavourite }) => {
                                 item={item}
                                 isLastRow={index === items.length - 1}
                                 handleFavourite={handleFavourite}
+                                handleRemoveFavourite={handleRemoveFavourite}
+                                isFavourited={favouriteIds.includes(item.id)}
                             />
                         ))}
                     </tbody>

@@ -16,16 +16,19 @@ const itemsPromise = fetchItems();
 function App() {
     const [favourite, setFavourite] = useState([]);
     const [amount, setAmount] = useState(0);
+    const [favouriteIds, setFavouriteIds] = useState([]);
 
     const handleFavourite = (item) => {
         setFavourite([...favourite, item]);
         setAmount(amount + item.currentBidPrice);
+        setFavouriteIds([...favouriteIds, item.id]);
     };
 
     const handleRemoveFavourite = (item) => {
         const updatedFavourite = favourite.filter((fav) => fav.id !== item.id);
         setFavourite(updatedFavourite);
         setAmount(amount - item.currentBidPrice);
+        setFavouriteIds(favouriteIds.filter((id) => id !== item.id));
     };
 
     return (
@@ -48,6 +51,8 @@ function App() {
                             <Items
                                 itemsPromise={itemsPromise}
                                 handleFavourite={handleFavourite}
+                                handleRemoveFavourite={handleRemoveFavourite}
+                                favouriteIds={favouriteIds}
                             />
                         </Suspense>
                     </div>
