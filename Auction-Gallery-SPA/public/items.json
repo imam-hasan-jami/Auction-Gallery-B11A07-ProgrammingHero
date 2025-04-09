@@ -1,0 +1,65 @@
+[
+    {
+      "id": 1,
+      "title": "Vintage Leica M3 Camera",
+      "description": "A classic 35mm rangefinder camera known for its precision and durability. Highly sought after by collectors and photography enthusiasts.",
+      "currentBidPrice": "$2,850",
+      "timeLeft": "2 Days left",
+      "bidsCount": 12,
+      "image": "https://i.ibb.co.com/qYTTmm37/Bid1-min.png"
+    },
+    {
+      "id": 2,
+      "title": "1965 Gibson SG Standard Electric Guitar",
+      "description": "Iconic solid-body electric guitar with a rich, resonant tone. A favorite of rock legends like Angus Young and Eric Clapton.",
+      "currentBidPrice": "$6,700",
+      "timeLeft": "5 Days left",
+      "bidsCount": 19,
+      "image": "https://i.ibb.co.com/s9p3LKMc/Bid2-min.png"
+    },
+    {
+      "id": 3,
+      "title": "Original Apple Macintosh 128K (1984)",
+      "description": "The groundbreaking first Macintosh computer with a 9-inch CRT display. A rare piece of tech history in working condition.",
+      "currentBidPrice": "$1,300",
+      "timeLeft": "17 Hours left",
+      "bidsCount": 72,
+      "image": "https://i.ibb.co.com/Ndym5LJ2/Bid3-min.png"
+    },
+    {
+      "id": 4,
+      "title": "Rolex Submariner 16610",
+      "description": "Timeless stainless steel dive watch with a black dial and rotating bezel. A symbol of luxury and precision craftsmanship.",
+      "currentBidPrice": "$7,180",
+      "timeLeft": "3 Days left",
+      "bidsCount": 15,
+      "image": "https://i.ibb.co.com/twjQMLwj/Bid4-min.png"
+    },
+    {
+      "id": 5,
+      "title": "First Edition 'The Great Gatsby' by F. Scott Fitzgerald",
+      "description": "Rare 1925 first printing of the American literary classic. Features the original dust jacket and gilt-edged pages.",
+      "currentBidPrice": "$520",
+      "timeLeft": "1 Days left",
+      "bidsCount": 89,
+      "image": "https://i.ibb.co.com/1Y5KfhGD/Bid6-min.png"
+    },
+    {
+      "id": 6,
+      "title": "Mid-Century Modern Eames Lounge Chair",
+      "description": "Iconic 1956 design with molded plywood and leather upholstery. A masterpiece of comfort and minimalist aesthetics.",
+      "currentBidPrice": "$950",
+      "timeLeft": "47 Minutes left",
+      "bidsCount": 23,
+      "image": "https://i.ibb.co.com/zV9B5myk/Bid5-min.png"
+    },
+    {
+      "id": 7,
+      "title": "Banksy Original Screen Print",
+      "description": "Authentic limited-edition artwork by the anonymous street artist. Comes with a certificate of provenance.",
+      "currentBidPrice": "$25,450",
+      "timeLeft": "15 Days left",
+      "bidsCount": 30,
+      "image": "https://i.ibb.co.com/tPCShyZZ/Bid7-min.png"
+    }
+  ]
