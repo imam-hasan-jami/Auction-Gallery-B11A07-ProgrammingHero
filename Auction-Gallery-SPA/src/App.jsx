@@ -23,12 +23,10 @@ function App() {
     };
 
     const handleRemoveFavourite = (item) => {
-        const updatedFavourite = favourite.filter(
-            (fav) => fav.id !== item.id
-        );
+        const updatedFavourite = favourite.filter((fav) => fav.id !== item.id);
         setFavourite(updatedFavourite);
         setAmount(amount - item.currentBidPrice);
-    }
+    };
 
     return (
         <>
@@ -38,6 +36,7 @@ function App() {
             {/* Auction Section Style */}
             <div className="bg-blue-200/15">
                 <div className="main-container flex gap-6 max-w-[1500px] mx-auto">
+                    {/* item container */}
                     <div className="items-container w-[60%]">
                         <Suspense
                             fallback={
@@ -52,6 +51,8 @@ function App() {
                             />
                         </Suspense>
                     </div>
+
+                    {/* favourite container */}
                     <div className="favorites-container w-[40%] bg-white mt-[260px] mb-140 rounded-3xl">
                         <div className="flex justify-center items-center gap-2 pt-10 pb-5 border-b-2 border-[#E5E5E5]/50">
                             <GoHeart size={30} />
@@ -60,43 +61,54 @@ function App() {
                             </h3>
                         </div>
                         <div className="">
-                            <h3 className="font-sora text-[26px] text-center font-medium mt-12">
-                                No favorites yet
-                            </h3>
-                            <p className="font-sora text-base text-center mt-6 pb-11 border-b-2 border-[#E5E5E5]/50">
-                                Click the heart icon on any item <br /> to add
-                                it to your favorites
-                            </p>
-
-                            {favourite.map((fav) => (
-                                <div
-                                    key={fav.id}
-                                    className="flex items-center gap-3 mx-10 px-5 py-5 border-b-2 border-[#E5E5E5]/50"
-                                >
-                                    <div className="avatar">
-                                        <div className="h-15 w-15">
-                                            <img
-                                                src={fav.image}
-                                                alt="Item Image"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="flex-1">
-                                        <div className="flex justify-between items-center w-full">
-                                            <div className="font-sora text-base text-[#0E2954]">
-                                                {fav.title}
+                            {favourite.length === 0 ? (
+                                <>
+                                    <h3 className="font-sora text-[26px] text-center font-medium mt-12">
+                                        No favorites yet
+                                    </h3>
+                                    <p className="font-sora text-base text-center mt-6 pb-11 border-b-2 border-[#E5E5E5]/50">
+                                        Click the heart icon on any item <br />{" "}
+                                        to add it to your favorites
+                                    </p>
+                                </>
+                            ) : (
+                                <>
+                                    {favourite.map((fav) => (
+                                        <div
+                                            key={fav.id}
+                                            className="flex items-center gap-3 mx-10 px-5 py-5 border-b-2 border-[#E5E5E5]/50"
+                                        >
+                                            <div className="avatar">
+                                                <div className="h-15 w-15">
+                                                    <img src={fav.image} alt="Item Image" />
+                                                </div>
                                             </div>
-                                            <button onClick={() => handleRemoveFavourite(fav)}>
-                                                <ImCross size={12} />
-                                            </button>
+                                            <div className="flex-1">
+                                                <div className="flex justify-between items-center w-full">
+                                                    <div className="font-sora text-base text-[#0E2954]">
+                                                        {fav.title}
+                                                    </div>
+                                                    <button
+                                                        onClick={() =>
+                                                            handleRemoveFavourite(fav)
+                                                        }
+                                                    >
+                                                        <ImCross size={12} />
+                                                    </button>
+                                                </div>
+                                                <div className="flex gap-20 mt-2 mb-2 font-sora text-base text-[#0E2954]">
+                                                    <div>
+                                                        ${fav.currentBidPrice}
+                                                    </div>
+                                                    <div>
+                                                        Bids: {fav.bidsCount}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="flex gap-20 mt-2 mb-2 font-sora text-base text-[#0E2954]">
-                                            <div>${fav.currentBidPrice}</div>
-                                            <div>Bids: {fav.bidsCount}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
+                                    ))}
+                                </>
+                            )}
 
                             <div className="flex justify-around items-center mb-10">
                                 <h3 className="font-sora text-2xl mt-8">
