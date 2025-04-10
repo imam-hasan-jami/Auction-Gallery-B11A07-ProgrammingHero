@@ -5,6 +5,7 @@ import Items from "./components/Items/Items";
 import Navbar from "./components/Navbar/Navbar";
 import { GoHeart } from "react-icons/go";
 import { ImCross } from "react-icons/im";
+import { toast } from "react-toastify";
 
 const fetchItems = async () => {
     const response = await fetch("items.json");
@@ -29,6 +30,7 @@ function App() {
         setFavourite(updatedFavourite);
         setAmount(amount - item.currentBidPrice);
         setFavouriteIds(favouriteIds.filter((id) => id !== item.id));
+        toast("Item removed from favourites");
     };
 
     return (

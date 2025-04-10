@@ -1,5 +1,6 @@
 import { GoHeart } from "react-icons/go";
 import { GoHeartFill } from "react-icons/go";
+import { toast } from "react-toastify";
 
 const Item = ({
     item,
@@ -14,6 +15,8 @@ const Item = ({
         } else {
             handleRemoveFavourite(item);
         }
+
+        toast("Item added to favourites");
     };
 
     return (
