@@ -58,14 +58,18 @@ function App() {
                     </div>
 
                     {/* favourite container */}
-                    <div className="favorites-container w-[40%] bg-white mt-[260px] mb-140 rounded-3xl">
+                    <div
+                        className={`favorites-container w-[40%] bg-white mt-[260px] ${
+                            favourite.length === 0 ? "h-[410px]" : "h-auto"
+                        } max-h-[810px] rounded-3xl flex flex-col`}
+                    >
                         <div className="flex justify-center items-center gap-2 pt-10 pb-5 border-b-2 border-[#E5E5E5]/50">
                             <GoHeart size={30} />
                             <h3 className="font-sora text-3xl">
                                 Favourite Items
                             </h3>
                         </div>
-                        <div className="">
+                        <div className="flex-1 overflow-y-auto">
                             {favourite.length === 0 ? (
                                 <>
                                     <h3 className="font-sora text-[26px] text-center font-medium mt-12">
@@ -115,13 +119,15 @@ function App() {
                                 </>
                             )}
 
-                            <div className="flex justify-around items-center mb-10">
-                                <h3 className="font-sora text-2xl mt-8">
-                                    Total bids Amount
-                                </h3>
-                                <h3 className="font-sora text-2xl mt-8">
-                                    ${amount}
-                                </h3>
+                            <div className="sticky bottom-0 bg-white pb-7 rounded-3xl">
+                                <div className="flex justify-around items-center">
+                                    <h3 className="font-sora text-2xl mt-8">
+                                        Total bids Amount
+                                    </h3>
+                                    <h3 className="font-sora text-2xl mt-8">
+                                        ${amount}
+                                    </h3>
+                                </div>
                             </div>
                         </div>
                     </div>
