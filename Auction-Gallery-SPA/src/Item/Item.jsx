@@ -36,16 +36,14 @@ const Item = ({
                 {!isFavourited ? (
                     <button
                         onClick={handleFavouriteClick}
-                        className="btn-heart ml-6"
-                        cursor="pointer"
+                        className="btn-heart ml-6 cursor-pointer"
                     >
                         <GoHeart size={20} />
                     </button>
                 ) : (
                     <button
-                        className="btn-filled-heart text-red-500 ml-6"
+                        className="btn-filled-heart text-red-500 ml-6 cursor-not-allowed"
                         disabled={true}
-                        cursor="not-allowed"
                     >
                         <GoHeartFill size={20} />
                     </button>
