@@ -99,12 +99,12 @@ const Navbar = () => {
                     <div
                         tabIndex={0}
                         role="button"
-                        className="btn btn-ghost btn-circle avatar"
+                        className="btn-circle avatar cursor-pointer"
                     >
                         <div className="w-10 rounded-full">
                             <img
                                 alt="Tailwind CSS Navbar component"
-                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                                src="https://i.ibb.co.com/FdcCM0P/9ff77355aa9da65684690f04d3ca021a.jpg"
                             />
                         </div>
                     </div>
