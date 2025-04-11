@@ -20,7 +20,7 @@ const Banner = () => {
                     Discover rare collectibles, luxury goods, and vintage <br />{" "}
                     treasures in our curated auctions
                 </p>
-                <button className="bg-white rounded-4xl py-4 px-8 mt-8 font-sora text-xl">
+                <button className="bg-white rounded-4xl py-4 px-8 mt-8 font-sora text-xl cursor-pointer hover:bg-[#E5E5E5] transition duration-300 ease-in-out">
                     Explore Auctions
                 </button>
             </div>
