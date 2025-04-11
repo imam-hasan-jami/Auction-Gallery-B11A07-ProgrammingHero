@@ -103,6 +103,7 @@ function App() {
                                                         onClick={() =>
                                                             handleRemoveFavourite(fav)
                                                         }
+                                                        className="cursor-pointer hover:text-red-500 rounded-full p-2"
                                                     >
                                                         <ImCross size={12} />
                                                     </button>
