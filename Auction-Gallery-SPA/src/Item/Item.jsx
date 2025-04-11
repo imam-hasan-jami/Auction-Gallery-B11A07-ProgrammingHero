@@ -20,7 +20,11 @@ const Item = ({
     };
 
     return (
-        <tr className={isLastRow ? "" : "border-b-2 border-[#E5E5E5]/50"}>
+        <tr
+            className={`${
+                isLastRow ? "" : "border-b-2 border-[#E5E5E5]/50"
+            } hover:bg-[#F8F8F8]`}
+        >
             <td className="px-5 py-5">
                 <div className="flex items-center gap-3">
                     <div className="avatar">
