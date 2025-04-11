@@ -16,7 +16,7 @@ const Item = ({
             handleRemoveFavourite(item);
         }
 
-        toast("Item added to favourites");
+        toast.success("Item added to favourites");
     };
 
     return (

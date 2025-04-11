@@ -30,7 +30,7 @@ function App() {
         setFavourite(updatedFavourite);
         setAmount(amount - item.currentBidPrice);
         setFavouriteIds(favouriteIds.filter((id) => id !== item.id));
-        toast("Item removed from favourites");
+        toast.success("Item removed from favourites");
     };
 
     return (
